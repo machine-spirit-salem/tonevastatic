@@ -30,3 +30,14 @@ a.card .card-title h3{border-bottom:0;margin:0}
 .lang-switcher .button:hover{opacity:1;border-bottom-color:#000}
 .lang-switcher .button.active{opacity:1;border-bottom-color:#000}
 .lang-switcher .button:focus-visible{outline:2px solid #000;outline-offset:3px}
+
+/* gallery previews: grey at rest, colour on hover (no zoom) */
+a.card:hover img{transform:none}
+@media (hover:hover){
+  a.card img{filter:grayscale(1) brightness(1.06) contrast(.94);transition:filter .45s ease}
+  a.card:hover img,a.card:focus-visible img{filter:none}
+}
+/* gallery titles: underline draws in on hover, left to right */
+a.card .card-title h3{width:fit-content;max-width:100%;padding-bottom:.25em;background:linear-gradient(currentColor,currentColor) left bottom/0 1px no-repeat;transition:background-size .7s cubic-bezier(.4,0,.2,1)}
+a.card:hover .card-title h3,a.card:focus-visible .card-title h3{background-size:100% 1px}
+@media (prefers-reduced-motion:reduce){a.card .card-title h3,a.card img{transition:none}}
